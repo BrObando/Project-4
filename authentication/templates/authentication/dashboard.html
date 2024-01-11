@@ -7,6 +7,14 @@
 </head>
 <body>
     <h2>Welcome, {{ user.username }}!</h2>
-    <a href="{% url 'logout' %}">Logout</a>
+    
+    {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
+            <li><a href="{% url 'donor_list' %}">Donor List</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    {% endif %}
 </body>
 </html>

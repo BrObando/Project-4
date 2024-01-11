@@ -11,6 +11,9 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+from .forms import DonorForm
+from .models import Donor
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -22,7 +25,7 @@ def login_view(request):
         else:
             error_message = 'Invalid login credentials.'
             return render(request, 'authentication/login.html', {'error_message': error_message})
-    return render(request, 'authentication/login.html')
+    return render(request, 'authentication/login.html', {'user': None})
 
 def logout_view(request):
     logout(request)
@@ -44,3 +47,18 @@ def change_password(request):
 
 def dashboard(request):
     return render(request, 'authentication/dashboard.html')
+
+def register_donor(request):
+    if request.method == 'POST':
+        form = DonorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('donor_list')
+    else:
+        form = DonorForm()
+
+    return render(request, 'authentication/register_donor.html', {'form': form})
+
+def donor_list(request):
+    donors = Donor.objects.all()
+    return render(request, 'authentication/donor_list.html', {'donors': donors})

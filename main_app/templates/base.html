@@ -8,8 +8,21 @@
 <body>
     <nav>
         <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'change_password' %}">Change Password</a></li>
+            
+                
+                {% if user.is_authenticated %}
+                
+                <ul>
+                    <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
+                    <li><a href="{% url 'donor_list' %}">Donor List</a></li>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            {% else %}
+                <ul>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            {% endif %}
         </ul>
     </nav>
     <div class="content">

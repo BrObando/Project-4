@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Donor List{% endblock %}
+
+{% block content %}
+    <h2>Registered Donors</h2>
+    <ul>
+        {% for donor in donors %}
+            <li>{{ donor }}</li>
+        {% endfor %}
+        
+    </ul>
+{% endblock %}

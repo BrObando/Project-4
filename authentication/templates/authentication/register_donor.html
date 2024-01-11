@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Register Donor{% endblock %}
+
+{% block content %}
+    <h2>Register a New Donor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register Donor</button>
+    </form>
+
+
+{% endblock %}
