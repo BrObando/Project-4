@@ -4,15 +4,15 @@ from django.shortcuts import render
 
 
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import DonorForm
-from .models import Donor
+from .forms import DonorForm, BloodDonationForm
+from .models import Donor, BloodDonation
 
 def login_view(request):
     if request.method == 'POST':
@@ -62,3 +62,28 @@ def register_donor(request):
 def donor_list(request):
     donors = Donor.objects.all()
     return render(request, 'authentication/donor_list.html', {'donors': donors})
+
+@login_required
+def schedule_appointment(request):
+    if request.method == 'POST':
+        form = BloodDonationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')  
+    else:
+        form = BloodDonationForm(initial={'donor': request.user})
+
+    return render(request, 'authentication/schedule_appointment.html', {'form': form})
+
+@login_required
+def record_blood_donation(request, donation_id=None):
+    if request.method == 'POST':
+        form = BloodDonationForm(request.POST)
+        if form.is_valid():
+            form.instance.donor = request.user
+            form.save()
+            return redirect('donor_list')  # Redirect to donor list or any other page
+    else:
+        form = BloodDonationForm()
+
+    return render(request, 'authentication/record_blood_donation.html', {'form': form})

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Future Donor{% endblock %}
+
+{% block content %}
+    <h2>Schedule an Appointment</h2>
+
+    <form method="post" action="{% url 'future_donor' %}">
+        {% csrf_token %}
+
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" id="id_name" required>
+
+        <label for="id_dob">Date of Birth:</label>
+        <input type="text" class="datepicker" name="dob" id="id_dob" required>
+        
+        <label for="id_email">Email:</label>
+        <input type="email" name="email" id="id_email" required>
+
+        <label for="id_appointment_date">Request Appointment Date:</label>
+        <input type="text" class="datepicker" name="appointment_date" id="id_appointment_date" required>
+
+        <label for="id_time_slot">Time Slot:</label>
+        <select name="time_slot" id="id_time_slot" required>
+            <option value="" disabled selected>Select a time slot</option>
+            <option value="08:00">8:00 AM</option>
+            <option value="09:00">9:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">10:00 AM</option>
+            <option value="12:00">10:00 AM</option>
+            
+        </select>
+
+        
+
+        <button type="submit">Submit</button>
+    </form>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var elemsDatepicker = document.querySelectorAll('.datepicker');
+            var instancesDatepicker = M.Datepicker.init(elemsDatepicker, {
+                format: 'yyyy-mm-dd',  
+            });
+
+            var elemsSelect = document.querySelectorAll('select');
+            var instancesSelect = M.FormSelect.init(elemsSelect);
+        });
+    </script>
+{% endblock %}
