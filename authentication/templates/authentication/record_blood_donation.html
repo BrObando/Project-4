@@ -3,10 +3,17 @@
 {% block title %}Record Blood Donation Details{% endblock %}
 
 {% block content %}
-    <h2>Record Blood Donation Details</h2>
+    <!-- <h2>Record Blood Donation Details</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Record Donation Details</button>
+    </form> -->
+
+    <h2>Record Blood Donation</h2>
+    <form method="post" action="{% url 'record_blood_donation' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
     </form>
 {% endblock %}

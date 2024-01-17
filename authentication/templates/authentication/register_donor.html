@@ -6,9 +6,39 @@
     <h2>Register a New Donor</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        
+        <div>
+            <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+            {{ form.first_name }}
+        </div>
+        
+        <div>
+            <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+            {{ form.last_name }}
+        </div>
+
+        <div>
+            <label for="{{ form.contact_number.id_for_label }}">Contact Number:</label>
+            {{ form.contact_number }}
+        </div>
+
+        <div>
+            <label for="{{ form.email.id_for_label }}">Email:</label>
+            {{ form.email }}
+        </div>
+
+        <div>
+            <label for="{{ form.blood_type.id_for_label }}">Blood Type:</label>
+            {{ form.blood_type }}
+        </div>
+
+        <div>
+            <label for="{{ form.units_collected.id_for_label }}">Units Collected:</label>
+            {{ form.units_collected }}
+        </div>
+        
+        <!-- Repeat for other fields -->
+        
         <button type="submit">Register Donor</button>
     </form>
-
-
 {% endblock %}

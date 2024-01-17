@@ -3,11 +3,10 @@
 {% block title %}Donor List{% endblock %}
 
 {% block content %}
-    <h2>Registered Donors</h2>
+    <h2>Donor List</h2>
     <ul>
         {% for donor in donors %}
-            <li>{{ donor }}</li>
+            <li>{{ donor.first_name }} {{ donor.last_name }} - Blood Type: {{ donor.blood_type }} - Units Collected: {{ donor.units_collected }}</li>
         {% endfor %}
-
     </ul>
 {% endblock %}

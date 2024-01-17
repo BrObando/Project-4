@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from django.contrib.auth.models import User 
+
 # Create your views here.
 
 
@@ -11,8 +13,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from .forms import DonorForm, BloodDonationForm
-from .models import Donor, BloodDonation
+from .forms import DonorForm
+from .models import Donor
 
 def login_view(request):
     if request.method == 'POST':
@@ -63,27 +65,30 @@ def donor_list(request):
     donors = Donor.objects.all()
     return render(request, 'authentication/donor_list.html', {'donors': donors})
 
-@login_required
-def schedule_appointment(request):
-    if request.method == 'POST':
-        form = BloodDonationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('dashboard')  
-    else:
-        form = BloodDonationForm(initial={'donor': request.user})
 
-    return render(request, 'authentication/schedule_appointment.html', {'form': form})
 
-@login_required
-def record_blood_donation(request, donation_id=None):
-    if request.method == 'POST':
-        form = BloodDonationForm(request.POST)
-        if form.is_valid():
-            form.instance.donor = request.user
-            form.save()
-            return redirect('donor_list')  # Redirect to donor list or any other page
-    else:
-        form = BloodDonationForm()
+# @login_required
+# def record_blood_donation(request, donation_id=None):
+#     if request.method == 'POST':
+#         form = BloodDonationForm(request.POST)
+#         if form.is_valid():
+#             form.instance.donor = request.user
+#             form.save()
+#             return redirect('donor_list')  
+#     else:
+#         form = BloodDonationForm()
 
-    return render(request, 'authentication/record_blood_donation.html', {'form': form})
+#     return render(request, 'authentication/record_blood_donation.html', {'form': form})
+
+# @login_required
+# def record_blood_donation(request):
+#     if request.method == 'POST':
+#         form = BloodDonationForm(request.POST, user_queryset=User.objects.all())
+#         if form.is_valid():
+#             form.instance.donor = request.user
+#             form.save()
+#             return redirect('donor_list')  # Redirect to donor list or any other page
+#     else:
+#         form = BloodDonationForm(user_queryset=User.objects.all())
+
+#     return render(request, 'authentication/record_blood_donation.html', {'form': form})
