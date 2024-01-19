@@ -3,6 +3,7 @@ from .views import login_view, logout_view, change_password, dashboard, register
 from .views import blood_inventory_list, create_blood_inventory, update_blood_inventory, delete_blood_inventory
 from .views import ajax_blood_inventory
 from .views import initiate_blood_shipment, blood_shipment_list
+from .views import fetch_medical_journals
 
 urlpatterns = [
     path('login/', login_view, name='login'),
@@ -18,5 +19,6 @@ urlpatterns = [
     path('auth/blood-inventory/', ajax_blood_inventory, name='ajax_blood_inventory'),
     path('initiate-blood-shipment/', initiate_blood_shipment, name='initiate_blood_shipment'),
     path('blood-shipment-list/', blood_shipment_list, name='blood_shipment_list'),
+    path('medical-journals/', fetch_medical_journals, name='medical_journals'),
 
 ]

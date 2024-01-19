@@ -3,13 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome</title>
+    {% load static %}
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+        h2 {
+            margin-bottom: 160px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        img {
+            max-width: 100px; /* Adjust the size as needed */
+            max-height: 100px; /* Adjust the size as needed */
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>howdy</h1>
-    <li><a href="/future_donor">Future Donor</a></li>
-    <li><a href="{% url 'login' %}"> Staff Login</a></li>
-    
-    <li><a href="/admin">Admin Login</a></li>
+    <h1>Biomedical Care Center</h1>
+    <h2>Immunohematology Services</h2>
+    <ul>
+        <li>
+            <!-- <img src="{% static 'path/to/future_donor_image.jpg' %}" alt="Future Donor"> -->
+            <a href="/future_donor">Future Donor</a>
+        </li>
+        <li>
+            <!-- <img src="{% static 'path/to/login_image.jpg' %}" alt="Staff Login"> -->
+            <a href="{% url 'login' %}">Staff Login</a>
+        </li>
+        <li>
+            <!-- <img src="{% static 'path/to/admin_login_image.jpg' %}" alt="Admin Login"> -->
+            <a href="/admin">Admin Login</a>
+        </li>
+    </ul>
 </body>
 </html>

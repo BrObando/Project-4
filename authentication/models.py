@@ -52,3 +52,5 @@ class BloodShipment(models.Model):
 
     def __str__(self):
         return f"{self.units_shipped} units of {self.blood_inventory.blood_type} blood shipped on {self.shipment_date}"
+    
+
