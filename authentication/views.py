@@ -180,26 +180,5 @@ def blood_shipment_list(request):
 
 
 
-    # url = 'https://medical-articles-live.p.rapidapi.com/journals'
-    # headers = {
-    #     "X-RapidAPI-Key": 'e90b3dbbf2msh550bc8c8beed4c5p18fd23jsnb8325cb6ffbe',
-    #     "X-RapidAPI-Host": "medical-articles-live.p.rapidapi.com"
-    # }
+  
 
-def fetch_medical_journals(request):
-    url = "https://heath-news.p.rapidapi.com/news"
-
-    headers = {
-	"X-RapidAPI-Key": "e90b3dbbf2msh550bc8c8beed4c5p18fd23jsnb8325cb6ffbe",
-	"X-RapidAPI-Host": "heath-news.p.rapidapi.com"
-    }
-
-    response = requests.get(url, headers=headers)
-    print(response)
-
-    # print(response.json())  
-    
-    # data = response.json()
-    return JsonResponse({"message":"success"})
-    # print(JsonResponse(data))
-    # return render(request, 'authentication/medical_journals.html')
