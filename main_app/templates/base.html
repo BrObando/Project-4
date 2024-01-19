@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
@@ -28,10 +29,15 @@
                 {% if user.is_authenticated %}
                 
                 <ul>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
                     <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
                     <li><a href="{% url 'donor_list' %}">Donor List</a></li>
-                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
+                    <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
+                    <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
                     <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                    
                 </ul>
             {% else %}
                 <ul>

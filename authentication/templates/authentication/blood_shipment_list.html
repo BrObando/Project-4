@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Blood Shipment List{% endblock %}
+
+{% block content %}
+    <h2>Blood Shipment List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Recipient</th>
+                <th>Units Shipped</th>
+                <th>Shipment Date</th>
+                <th>Blood Type</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shipment in shipments %}
+                <tr>
+                    <td>{{ shipment.recipient }}</td>
+                    <td>{{ shipment.units_shipped }}</td>
+                    <td>{{ shipment.shipment_date }}</td>
+                    <td>{{ shipment.blood_inventory.blood_type }}</td>
+                    <td>{{ shipment.destination }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +17,12 @@
             <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
             <li><a href="{% url 'change_password' %}">Change Password</a></li>
+            <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
+            <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
+            <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
+            
+            
+            
             
         </ul>
     {% endif %}

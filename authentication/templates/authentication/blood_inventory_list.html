@@ -1,0 +1,62 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Blood Inventory List{% endblock %}
+
+{% block content %}
+  <h2>Blood Inventory List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Blood Type</th>
+        <th>Units Available</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for inventory in inventories %}
+        <tr>
+          <td>{{ inventory.blood_type }}</td>
+          <td>{{ inventory.units_available }}</td>
+          <td>
+            <a href="{% url 'update_blood_inventory' inventory.pk %}">Update</a>
+            <a href="{% url 'delete_blood_inventory' inventory.pk %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'create_blood_inventory' %}">Add New Inventory</a>
+
+  
+  <div id="popupMessage" style="display: none;"></div>
+
+  
+  <script>
+    
+    function checkBloodInventory() {
+      $.ajax({
+        url: '/auth/blood-inventory/',   
+        method: 'GET',
+        success: function (data) {
+          const currentCount = data.units_available;
+          const threshold = data.threshold;
+
+          if (currentCount < threshold) {
+            const popupMessage = $('#popupMessage');
+            popupMessage.text('Blood inventory is below the threshold!');
+            popupMessage.show();
+          } else {
+            $('#popupMessage').hide();
+          }
+        },
+        error: function (error) {
+          console.error('Error fetching blood inventory:', error);
+        }
+      });
+    }
+
+    
+    setInterval(checkBloodInventory, 10000);
+  </script>
+{% endblock %}

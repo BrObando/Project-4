@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Blood Inventory{% endblock %}
+
+{% block content %}
+  <h2>Update Blood Inventory</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Inventory</button>
+  </form>
+  <a href="{% url 'blood_inventory_list' %}">Back to Inventory List</a>
+{% endblock %}
