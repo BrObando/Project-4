@@ -1,0 +1,1 @@
+web: gunicorn biomedical_care_center.wsgi
