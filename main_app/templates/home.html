@@ -8,13 +8,17 @@
     <style>
         body {
             text-align: center;
+            background-color: rgb(0, 0, 0);
         }
 
         h1 {
             margin-bottom: 10px;
+            color: white;
+            
         }
         h2 {
             margin-bottom: 160px;
+            color: white;
         }
 
         ul {
@@ -25,30 +29,38 @@
         li {
             display: inline-block;
             margin: 0 10px;
+            background-color: white;
+            /* border: 3px solid rgb(129, 2, 2);  */
+            padding: 10px;
+            color: white;
+            
+            
+            
         }
 
         img {
-            max-width: 100px; /* Adjust the size as needed */
-            max-height: 100px; /* Adjust the size as needed */
+            max-width: 300px; 
+            max-height: 300px; 
             display: block;
             margin: 0 auto;
+            background-color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <h1>Biomedical Care Center</h1>
-    <h2>Immunohematology Services</h2>
+    <h1>BIOMEDICAL CARE CENTER</h1>
+    <h2>IMMUNOHEMATOLOGY SPECIAILITY SERVICES</h2>
     <ul>
         <li>
-            <!-- <img src="{% static 'path/to/future_donor_image.jpg' %}" alt="Future Donor"> -->
+            <img src="{% static 'assets/icon.png' %}" alt="Future Donor">
             <a href="/future_donor">Future Donor</a>
         </li>
         <li>
-            <!-- <img src="{% static 'path/to/login_image.jpg' %}" alt="Staff Login"> -->
+            <img src="{% static 'assets/icon.png' %}" alt="Staff Login">
             <a href="{% url 'login' %}">Staff Login</a>
         </li>
         <li>
-            <!-- <img src="{% static 'path/to/admin_login_image.jpg' %}" alt="Admin Login"> -->
+            <img src="{% static 'assets/icon.png' %}" alt="Admin Login">
             <a href="/admin">Admin Login</a>
         </li>
     </ul>

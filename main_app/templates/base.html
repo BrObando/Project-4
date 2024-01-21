@@ -4,11 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Blood Donation{% endblock %}</title>
-    
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; 
+        }
+
+        .navbar {
+            background-color: #000000; 
+            color: white; 
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navbar li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script>
@@ -22,31 +57,24 @@
     </script>
 </head>
 <body>
-    <nav>
+    <div class="navbar">
         <ul>
-            
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
+                <li><a href="{% url 'donor_list' %}">Donor List</a></li>
+                <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
+                <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
+                <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
+                <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
                 
-                {% if user.is_authenticated %}
-                
-                <ul>
-                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-                    <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
-                    <li><a href="{% url 'donor_list' %}">Donor List</a></li>
-                    <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
-                    <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
-                    <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
-                    
-                </ul>
             {% else %}
-                <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                </ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
             {% endif %}
         </ul>
-    </nav>
+    </div>
     <div class="content">
         {% block content %}{% endblock %}
     </div>

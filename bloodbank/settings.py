@@ -143,3 +143,15 @@ EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / "authentication" / "static",
+]

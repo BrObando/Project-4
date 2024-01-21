@@ -1,32 +1,87 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Set a black background */
+            color: white; /* Set text color to white */
+        }
+
+        h2 {
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .image-container img {
+            max-width: 100%; 
+            height: auto; 
+            
+            display: block;
+            margin: 0 auto;
+        }
+
+        .links-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            /* flex-wrap: wrap;
+            justify-content: space-between; */
+            column-count: 2;
+            column-gap: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <h2>Welcome, {{ user.username }}!</h2>
-    
-    {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
-            <li><a href="{% url 'donor_list' %}">Donor List</a></li>
-            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
-            <li><a href="{% url 'change_password' %}">Change Password</a></li>
-            <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
-            <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
-            <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
+    <div class="main-container">
+        <div class="image-container">
+            <img src="{%load static%}{% static 'assets2.0/microscope.png' %}" alt="Dashboard Image">
+        </div>
+        <div class="links-container">
+            <h1>Welcome, {{ user.username }}!</h1>
             
-
-            
-            
-            
-            
-        </ul>
-    {% endif %}
+            {% if user.is_authenticated %}
+                <ul>
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'register_donor' %}">Register Donor</a></li>
+                    <li><a href="{% url 'donor_list' %}">Donor List</a></li>
+                    <li><a href="{% url 'blood_inventory_list' %}">Blood Inventory</a></li>
+                    <li><a href="{% url 'initiate_blood_shipment' %}">Distribution</a></li>
+                    <li><a href="{% url 'blood_shipment_list' %}">Distribution List</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
