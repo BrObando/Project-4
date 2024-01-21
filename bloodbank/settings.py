@@ -14,7 +14,7 @@ from pathlib import Path
 
 import os
 
-from dotenv import load_dotenv
+
 
 # Load environment variables from .env
 load_dotenv(os.path.join(Path(__file__).resolve().parent, '.env'))
