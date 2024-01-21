@@ -1,1 +1,1 @@
-web: gunicorn biomedical_care_center.wsgi
+web: gunicorn bloodbank.wsgi
