@@ -4,8 +4,8 @@ from django.http import JsonResponse
 
 from django.contrib.auth.models import User 
 
-import requests
-import json
+
+
 
 
 # Create your views here.
