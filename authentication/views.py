@@ -175,7 +175,8 @@ def initiate_blood_shipment(request):
 
 
 def blood_shipment_list(request):
-    shipments = BloodShipment.objects.all()
+    # shipments = BloodShipment.objects.all()
+    shipments = BloodShipment.objects.select_related('blood_inventory').all()
     return render(request, 'authentication/blood_shipment_list.html', {'shipments': shipments})
 
 
