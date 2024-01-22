@@ -10,22 +10,22 @@
 
 ![Future_Donor](main_app/static/Assets/Future_Donor.png)
 
-
+- Stay in control and monitor every aspect of your blood donation program with our comprehensive Dashboard
 ![Staff_Dashboard](main_app/static/Assets/Staff_Dashboard.png)
 
-
+- Empower the community by easily registering new donors and expanding your lifesaving network
 ![Register](main_app/static/Assets/register.png)
 
-
+- Access a detailed list of donors, their information, and contribution history for effective donor management
 ![Donor](main_app/static/Assets/donor.png)
 
-
+- Efficiently manage your blood inventory, ensuring a ready supply to meet urgent medical needs
 ![Inventory](main_app/static/Assets/inventory.png)
 
-
+- Initiate and monitor blood distribution to hospitals and facilities seamlessly through our Distribution feature
 ![Create](main_app/static/Assets/create_shipment.png)
 
-
+- Track and review the history of blood distributions, ensuring transparency and accountability
 ![Distribution](main_app/static/Assets/distribution%20_list.png)
 
 ## Technologies Used:
