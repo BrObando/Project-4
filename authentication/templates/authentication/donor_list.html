@@ -4,9 +4,22 @@
 
 {% block content %}
     <h2>Donor List</h2>
-    <ul>
-        {% for donor in donors %}
-            <li>{{ donor.first_name }} {{ donor.last_name }} - Blood Type: {{ donor.blood_type }} - Units Collected: {{ donor.units_collected }}</li>
-        {% endfor %}
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Blood Type</th>
+                <th>Units Collected</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for donor in donors %}
+                <tr>
+                    <td>{{ donor.first_name }} {{ donor.last_name }}</td>
+                    <td>{{ donor.blood_type }}</td>
+                    <td>{{ donor.units_collected }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
