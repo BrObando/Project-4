@@ -8,18 +8,25 @@
     <style>
         body {
             text-align: center;
-            background-color: rgb(0, 0, 0);
+            background-image: url("../static/Assets/close-up-laboratory-desk-with-professional-research-equipment-tray-vacutainers-with-blood-microscopic-examination-micro-pipette-microscope-tools-science-development_482257-26481.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            
         }
 
         h1 {
             margin-top: 90px;
             margin-bottom: 10px;
-            color: white;
+            color: black;
+            font-weight: bold;
+            font-size: 80px;
             
         }
         h2 {
             margin-bottom: 160px;
-            color: white;
+            color: black;
+            font-weight: bold; 
+            font-size: 40px;
         }
 
         ul {
@@ -30,38 +37,41 @@
         li {
             display: inline-block;
             margin: 0 10px;
-            background-color: rgb(167, 166, 166);
+            background-color: rgb(252, 252, 253);
             padding: 10px;
             color: rgb(0, 0, 0);
             text-align: center; 
             border-radius: 50%; 
             overflow: hidden; 
+            font-weight: bold;
+            font-size: 18px;
+            
         }
 
         img {
-            max-width: 300px;
+            max-width: 500px;
             max-height: 300px;
             display: block;
             margin: 0 auto;
-            background-color: #ffffff;
+            /* background-color: #ffffff; */
             border-radius: 50%; 
         }
     </style>
 </head>
 <body>
     <h1>BIOMEDICAL CARE CENTER</h1>
-    <h2>IMMUNOHEMATOLOGY SPECIAILITY SERVICES</h2>
+    <h2>IMMUNOHEMATOLOGY SPECIALITY SERVICES</h2>
     <ul>
         <li>
-            <img src="{% static 'Assets/icon.png' %}" alt="Future Donor">
+            <img src="{% static 'Assets/icon3.png' %}" alt="Future Donor">
             <a href="/future_donor">Future Donor</a>
         </li>
         <li>
-            <img src="{% static 'Assets/icon.png' %}" alt="Staff Login">
+            <img src="{% static 'Assets/icon3.png' %}" alt="Staff Login">
             <a href="{% url 'login' %}">Staff Login</a>
         </li>
         <li>
-            <img src="{% static 'Assets/icon.png' %}" alt="Admin Login">
+            <img src="{% static 'Assets/icon3.png' %}" alt="Admin Login">
             <a href="/admin">Admin Login</a>
         </li>
     </ul>
